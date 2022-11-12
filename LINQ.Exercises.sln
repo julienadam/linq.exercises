@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ.Exercises", "LINQ.Exercises\LINQ.Exercises.csproj", "{A3B60DD0-BC38-4023-B36C-A1A843361AA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8218F709-CA23-445A-B8AF-26A82A5D3481}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3B60DD0-BC38-4023-B36C-A1A843361AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B60DD0-BC38-4023-B36C-A1A843361AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B60DD0-BC38-4023-B36C-A1A843361AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B60DD0-BC38-4023-B36C-A1A843361AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F84B3730-20DC-45C5-B161-785E0C38845D}
+	EndGlobalSection
+EndGlobal
