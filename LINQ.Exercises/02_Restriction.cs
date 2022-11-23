@@ -24,7 +24,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Where_n_is_less_than_or_equal_to_0_returns_expected_ints()
         {
-            IEnumerable<int> result = TestData.Numbers;
+            IEnumerable<int> result = TestData.Numbers.Where(i => i <= 0);
 
             Assert.Equal(5, result.Count());
             Assert.True(new[] { -3, -1, -4, -1, -5 }.SequenceEqual(result));
@@ -47,11 +47,12 @@ namespace LINQ.Exercises
         }
 
         [Fact]
-        public void Where_index_of_n_is_odd()
+        public void Where_index_of_n_is_even()
         {
             IEnumerable<int> result = TestData.Numbers;
+            
 
-            Assert.True(new[] { 1, 1, 3, 5 }.SequenceEqual(result));
+            Assert.True(new[] { 1, 1, 2, 3, 5 }.SequenceEqual(result));
         }
 
         [Fact]
