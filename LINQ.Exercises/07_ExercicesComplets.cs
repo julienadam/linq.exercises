@@ -36,6 +36,7 @@ namespace LINQ.Exercises
             var input = TestData.Customers;
             var resultats = Enumerable.Empty<IGrouping<string, TestData.Customer>>();
 
+            Check.That(resultats).HasSize(4);
             Check.That(resultats.Single(g => g.Key == "BNP")).ContainsExactly(TestData.Customers[1], TestData.Customers[5]);
             Check.That(resultats.Single(g => g.Key == "SG")).ContainsExactly(TestData.Customers[7]);
             Check.That(resultats.Single(g => g.Key == "CA")).ContainsExactly(TestData.Customers[3]);
