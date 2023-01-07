@@ -24,7 +24,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Nombres_plus_petits_ou_egaux_a_zero()
         {
-            var result = TestData.Numbers.Where(n => n <= 0);
+            var result = TestData.Numbers;
 
             Check.That(result).IsEquivalentTo(-3, -1, -4, -1, -5);
         }
