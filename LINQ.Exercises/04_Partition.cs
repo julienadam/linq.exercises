@@ -1,85 +1,73 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using NFluent;
 using Xunit;
 
 namespace LINQ.Exercises
 {
     /// <summary>
-    /// Look here for a primer:
-    /// http://code.msdn.microsoft.com/LINQ-Partitioning-Operators-c68aaccc
-    /// HINTS: Use TakeWhile, TakeWhile - indexed: TakeWhile( (element, index) => etc ), Skip, SkipWhile - indexed  e.g. SkipWhile((element, index) => etc )
-    /// Please refer to the MSDN documentation if you have any trouble.
-    /// Make sure to preview test data located in TestData.cs file.
-    /// Don't modify assertions or test data, all you need to do is to apply LINQ method so `result` variable will have expected value(s).
+    /// Utiliser TakeWhile, TakeWhile, Skip, SkipWhile, ou leur version indexée de manière à faire passer les tests.
+    /// Inspectez les données situées dans le fichier TestData.cs
+    /// Ne modifiez pas les assertions ou les données de test ! Il faut utiliser les méthodes LINQ de manière à ce que 
+    /// la variable `result` contienne des données qui passent les tests.
     /// </summary>
     public class Partition
     {
         [Fact]
-        public void GetFirstThreeNumbers_returns_3_ints()
+        public void Les_3_premiers_nombres()
         {
-            // First test is solved to show you how to use these exercises.
-            IEnumerable<int> result = TestData.PartitionNumbers.Take(3);
+            // Le premier test passe.
+            var result = TestData.PartitionNumbers.Take(3);
 
-            Assert.True(result.SequenceEqual(new[] { 5, 4, 1 }));
+            Check.That(result).IsEquivalentTo(5, 4, 1);
         }
 
-        // Get the first two numbers in the array
         [Fact]
-        public void GetFirstTwoNumbers_returns_2_ints()
+        public void Les_deux_premiers_nombres()
         {
-            IEnumerable<int> result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers;
 
-            Assert.True(result.SequenceEqual(new[] { 5, 4 }));
+            Check.That(result).IsEquivalentTo(5, 4);
         }
 
-        // return everything in the array but the first four numbers
         [Fact]
-        public void IgnoreFirstFourNumbers_returns_4_ints()
+        public void Tous_les_nombres_sauf_les_4_premiers()
         {
-            IEnumerable<int> result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers;
 
-            Assert.True(result.SequenceEqual(new[] { 9, 8, 6, 7, 2, 0 }));
+            Check.That(result).IsEquivalentTo(9, 8, 6, 7, 2, 0);
         }
 
-        // return elements starting from the beginning of the array
-        // until a number is hit that is not less than 6
         [Fact]
-        public void Enumerate_Till_You_Get_A_Number_NotLessThanSix_returns_4_ints()
+        public void Tous_les_nombres_jusqu_au_premier_nombre_qui_n_est_pas_plus_petit_que_6()
         {
-            IEnumerable<int> result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers;
 
-            Assert.True(result.SequenceEqual(new[] { 5, 4, 1, 3 }));
+            Check.That(result).IsEquivalentTo(5, 4, 1, 3);
         }
 
-        // return elements starting from the beginning of the array
-        // until a number is hit that is less than its position in the array
         [Fact]
-        public void Enumerate_Till_A_Number_Hit_Which_is_less_than_its_own_array_position_returns_2_ints()
+        public void Tous_les_nombres_jusqu_au_premier_qui_est_inferieur_a_sa_position_dans_la_sequence()
         {
-            IEnumerable<int> result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers;
 
-            Assert.True(result.SequenceEqual(new[] { 5, 4 }));
+            Check.That(result).IsEquivalentTo(5, 4);
         }
 
-        // get the elements of the array
-        // starting from the first element divisible by 3
         [Fact]
-        public void GetElementsOfArrayStartingFromTheFirstElementDivisibleByThree_Return7ints()
+        public void Tous_les_elements_a_partir_du_premier_element_divisible_par_3()
         {
-            IEnumerable<int> result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers;
 
-            Assert.True(result.SequenceEqual(new[] { 3, 9, 8, 6, 7, 2, 0 }));
+            Check.That(result).IsEquivalentTo(3, 9, 8, 6, 7, 2, 0);
         }
 
-        // get the elements of the array
-        // starting from the first element less than its position.
         [Fact]
-        public void GetElementsStartingFromFirstElementLessThanItsPosition_Return8ints()
+        public void Tous_les_elements_a_partir_du_premier_element_inferieur_a_sa_position_dans_la_sequence()
         {
-            IEnumerable<int> result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers;
 
-            Assert.True(result.SequenceEqual(new[] { 1, 3, 9, 8, 6, 7, 2, 0 }));
+            Check.That(result).IsEquivalentTo(1, 3, 9, 8, 6, 7, 2, 0);
         }
     }
 }
