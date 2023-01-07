@@ -120,7 +120,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(
+            Check.That(result).ContainsExactly(
                 new TestData.Person("Jill", "Lill", new DateTime(2001, 5, 21)),
                 new TestData.Person("Jack", "Tuck", new DateTime(1990, 3, 12)),
                 new TestData.Person("Jimmy", "Jilly", new DateTime(1974, 9, 16)),
@@ -134,7 +134,7 @@ namespace LINQ.Exercises
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
             var result = digits;
 
-            Check.That(result).IsEquivalentTo("one", "six", "two", "five", "four", "nine", "zero", "eight", "seven", "three");
+            Check.That(result).ContainsExactly("one", "six", "two", "five", "four", "nine", "zero", "eight", "seven", "three");
         }
 
         [Fact]
@@ -144,7 +144,7 @@ namespace LINQ.Exercises
 
             var result = words;
 
-            Check.That(result).IsEquivalentTo("aPPLE", "AbAcUs", "bRaNcH", "cHeRry", "ClOvEr", "BlUeBeRrY");
+            Check.That(result).ContainsExactly("aPPLE", "AbAcUs", "bRaNcH", "cHeRry", "ClOvEr", "BlUeBeRrY");
         }
 
         [Fact]
@@ -154,7 +154,7 @@ namespace LINQ.Exercises
 
             var result = digits;
 
-            Check.That(result).IsEquivalentTo("nine", "eight", "six", "five");
+            Check.That(result).ContainsExactly("nine", "eight", "six", "five");
         }
     }
 }
