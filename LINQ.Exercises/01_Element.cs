@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using NFluent;
 using Xunit;
 
 namespace LINQ.Exercises
@@ -17,7 +18,7 @@ namespace LINQ.Exercises
             // Ce test passe pour vous montrer comment procéder
             int result = TestData.Numbers.First();
 
-            Assert.Equal(1, result);
+            Check.That(result).IsEqualTo(1);
         }
 
         [Fact]
@@ -25,7 +26,7 @@ namespace LINQ.Exercises
         {
             int result = TestData.Numbers.First();
 
-            Assert.Equal(-3, result);
+            Check.That(result).IsEqualTo(-3);
         }
 
         [Fact]
@@ -33,7 +34,7 @@ namespace LINQ.Exercises
         {
             int result = TestData.Numbers.First();
 
-            Assert.Equal(5, result);
+            Check.That(result).IsEqualTo(5);
         }
 
         [Fact]
@@ -41,7 +42,7 @@ namespace LINQ.Exercises
         {
             int result = TestData.Numbers.First();
 
-            Assert.Equal(2, result);
+            Check.That(result).IsEqualTo(2);
         }
 
         [Fact]
@@ -49,7 +50,7 @@ namespace LINQ.Exercises
         {
             int result = TestData.Numbers.First();
 
-            Assert.Equal(-4, result);
+            Check.That(result).IsEqualTo(-4);
         }
 
         [Fact]
@@ -57,7 +58,7 @@ namespace LINQ.Exercises
         {
             int result = TestData.Numbers.First();
 
-            Assert.Equal(0, result);
+            Check.That(result).IsEqualTo(0);
         }
 
         [Fact]
@@ -65,7 +66,7 @@ namespace LINQ.Exercises
         {
             int result = TestData.Numbers.First();
 
-            Assert.Equal(0, result);
+            Check.That(result).IsEqualTo(0);
         }
 
         [Fact]
@@ -73,7 +74,7 @@ namespace LINQ.Exercises
         {
             string result = TestData.Animals.First();
 
-            Assert.Equal("elephant", result);
+            Check.That(result).IsEqualTo("elephant");
         }
 
         [Fact]
@@ -81,7 +82,7 @@ namespace LINQ.Exercises
         {
             string result = TestData.Animals.First();
 
-            Assert.Equal("lion", result);
+            Check.That(result).IsEqualTo("lion");
         }
 
         [Fact]
@@ -89,7 +90,7 @@ namespace LINQ.Exercises
         {
             string result = TestData.Animals.First();
 
-            Assert.Equal("penguin", result);
+            Check.That(result).IsEqualTo("penguin");
         }
 
         [Fact]
@@ -97,7 +98,7 @@ namespace LINQ.Exercises
         {
             string result = TestData.Animals.First();
 
-            Assert.Equal("swordfish", result);
+            Check.That(result).IsEqualTo("swordfish");
         }
 
         [Fact]
@@ -105,7 +106,7 @@ namespace LINQ.Exercises
         {
             string result = TestData.Animals.First();
 
-            Assert.Null(result);
+            Check.That(result).IsNull();
         }
 
         [Fact]
@@ -113,7 +114,7 @@ namespace LINQ.Exercises
         {
             TestData.Person result = TestData.People.First();
 
-            Assert.Equal(TestData.People[2], result);
+            Check.That(result).IsEqualTo(TestData.People[2]);
         }
 
         [Fact]
@@ -121,7 +122,7 @@ namespace LINQ.Exercises
         {
             TestData.Person result = TestData.People.First();
 
-            Assert.Equal(TestData.People[2], result);
+            Check.That(result).IsEqualTo(TestData.People[2]);
         }
 
         [Fact]
@@ -129,7 +130,7 @@ namespace LINQ.Exercises
         {
             TestData.Person result = TestData.People.First();
 
-            Assert.Equal(TestData.People[2], result);
+            Check.That(result).IsEqualTo(TestData.People[2]);
         }
 
         [Fact]
@@ -137,7 +138,7 @@ namespace LINQ.Exercises
         {
             TestData.Person result = TestData.People.First();
 
-            Assert.Null(result);
+            Check.That(result).IsNull();
         }
     }
 }

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 namespace LINQ.Exercises
 {
     /// <summary>
-    /// Data used for tests.
-    /// Don't change it in any way, order and content of each test data set is important.
+    /// Données de test
+    /// NE PAS MODIFIER !!!
+    /// L'ordre est important
     /// </summary>
-    internal static class TestData
+    public static class TestData
     {
-        internal static IEnumerable<int> Numbers
+        public static IEnumerable<int> Numbers
         {
             get
             {
@@ -17,7 +18,7 @@ namespace LINQ.Exercises
             }
         }
 
-        internal static ICollection<string> Animals
+        public static ICollection<string> Animals
         {
             get
             {
@@ -25,7 +26,7 @@ namespace LINQ.Exercises
             }
         }
 
-        internal static IList<Person> People
+        public static IList<Person> People
         {
             get
             {
@@ -39,7 +40,7 @@ namespace LINQ.Exercises
             }
         }
 
-        internal class Person
+        public class Person
         {
             public string FirstName { get; }
 
@@ -61,22 +62,12 @@ namespace LINQ.Exercises
 
             public override int GetHashCode()
             {
-                // overflow is fine
-                unchecked
-                {
-                    int hash = 17;
-                    // test data should never be null
-                    hash = hash * 23 + FirstName.GetHashCode();
-                    hash = hash * 23 + LastName.GetHashCode();
-                    hash = hash * 23 + Born.GetHashCode();
-                    return hash;
-                }
+                return HashCode.Combine(FirstName, LastName, Born);
             }
 
-            public override bool Equals(Object obj)
+            public override bool Equals(object? obj)
             {
-                Person person = obj as Person;
-                if (person == null)
+                if (obj is not Person person)
                 {
                     return false;
                 }
@@ -85,11 +76,7 @@ namespace LINQ.Exercises
             }
         }
 
-        /// <summary>
-        /// The following Data was using for the partioning Tests
-        /// </summary>
-        ///
-        internal static IEnumerable<int> PartitionNumbers
+        public static IEnumerable<int> PartitionNumbers
         {
             get
             {
@@ -97,17 +84,12 @@ namespace LINQ.Exercises
             }
         }
 
-        /// <summary>
-        /// The following Data was using for the Orderby Tests
-        /// </summary>
-        ///
-
-        internal static IEnumerable<string> OrderByWords
+        public static IEnumerable<string> OrderByWords
         {
             get { return new[] { "cherry", "apple", "blueberry" }; }
         }
 
-        internal static IEnumerable<string> OrderByWordsExtended
+        public static IEnumerable<string> OrderByWordsExtended
         {
             get { return new[] { "cherry", "apple", "blueberry", "tamarind", "zuchini" }; }
         }

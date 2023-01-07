@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+
+using NFluent;
 using Xunit;
 
 namespace LINQ.Exercises
@@ -16,8 +18,7 @@ namespace LINQ.Exercises
         {
             // Ce premier test passe
             var result = TestData.Numbers.Where(n => n > 1);
-
-            Assert.Equal(3, result.Count());
+            Check.That(result).IsEquivalentTo(2, 3, 5);
         }
 
         [Fact]
@@ -25,7 +26,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers.Where(n => n <= 0);
 
-            Assert.Equal(new[] { -3, -1, -4, -1, -5 }, result);
+            Check.That(result).IsEquivalentTo(-3, -1, -4, -1, -5);
         }
 
         [Fact]
@@ -33,7 +34,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Assert.Equal(new[] { 3, 5 }, result);
+            Check.That(result).IsEquivalentTo(3, 5);
         }
 
         [Fact]
@@ -41,7 +42,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Assert.Equal(new[] { 2, -4 }, result);
+            Check.That(result).IsEquivalentTo(2, -4);
         }
 
         [Fact]
@@ -49,7 +50,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Assert.Equal(new[] { 1, 1, 3, 5 }, result);
+            Check.That(result).IsEquivalentTo(1, 1, 3, 5);
         }
 
         [Fact]
@@ -57,7 +58,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Assert.Equal(new[] { -4 }, result);
+            Check.That(result).IsEquivalentTo(-4);
         }
 
         [Fact]
@@ -65,7 +66,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Assert.Equal(new[] { -3, -1, -4, -1, 5, -5 }, result);
+            Check.That(result).IsEquivalentTo(-3, -1, -4, -1, 5, -5);
         }
 
         [Fact]
@@ -73,7 +74,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Assert.Equal(new[] { "lion" }, result);
+            Check.That(result).IsEquivalentTo("lion");
         }
 
         [Fact]
@@ -81,7 +82,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Assert.Equal(new[] { "swordfish" }, result);
+            Check.That(result).IsEquivalentTo("swordfish");
         }
 
         [Fact]
@@ -89,7 +90,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Assert.Equal(new[] { "swordfish", "shark" }, result);
+            Check.That(result).IsEquivalentTo("swordfish", "shark");
         }
 
         [Fact]
@@ -97,7 +98,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Assert.Equal(new[] { "tiger", "lion" }, result);
+            Check.That(result).IsEquivalentTo("tiger", "lion");
         }
 
         [Fact]
@@ -105,7 +106,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Assert.Equal(new[] { "tiger", "penguin", "elephant" }, result);
+            Check.That(result).IsEquivalentTo("tiger", "penguin", "elephant");
         }
 
         [Fact]
@@ -113,7 +114,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Assert.Equal(new[] { "elephant" }, result);
+            Check.That(result).IsEquivalentTo("elephant");
         }
 
         [Fact]
@@ -121,7 +122,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Assert.Equal(new[] { "lion" }, result);
+            Check.That(result).IsEquivalentTo("lion");
         }
 
         [Fact]
@@ -129,7 +130,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Assert.Equal(new[] { TestData.People[3] }, result);
+            Check.That(result).IsEquivalentTo(TestData.People[3]);
         }
 
         [Fact]
@@ -137,7 +138,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Assert.Equal(new[] { TestData.People[1], TestData.People[3] }, result);
+            Check.That(result).IsEquivalentTo(TestData.People[1], TestData.People[3]);
         }
 
         [Fact]
@@ -145,7 +146,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Assert.Equal(new[] { TestData.People[0], TestData.People[3] }, result);
+            Check.That(result).IsEquivalentTo(TestData.People[0], TestData.People[3]);
         }
 
         [Fact]
@@ -153,7 +154,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Assert.Equal(new[] { TestData.People[2] }, result);
+            Check.That(result).IsEquivalentTo(TestData.People[2]);
         }
 
         [Fact]
@@ -161,7 +162,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Assert.Equal(new[] { TestData.People[1], TestData.People[3] }, result);
+            Check.That(result).IsEquivalentTo(TestData.People[1], TestData.People[3]);
         }
 
         [Fact]
@@ -169,7 +170,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Assert.Equal(new[] { TestData.People[2] }, result);
+            Check.That(result).IsEquivalentTo(TestData.People[2]);
         }
     }
 }
