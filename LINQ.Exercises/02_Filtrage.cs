@@ -18,7 +18,7 @@ namespace LINQ.Exercises
         {
             // Ce premier test passe
             var result = TestData.Numbers.Where(n => n > 1);
-            Check.That(result).IsEquivalentTo(2, 3, 5);
+            Check.That(result).ContainsExactly(2, 3, 5);
         }
 
         [Fact]
@@ -26,7 +26,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Check.That(result).IsEquivalentTo(-3, -1, -4, -1, -5);
+            Check.That(result).ContainsExactly(-3, -1, -4, -1, -5);
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Check.That(result).IsEquivalentTo(3, 5);
+            Check.That(result).ContainsExactly(3, 5);
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Check.That(result).IsEquivalentTo(2, -4);
+            Check.That(result).ContainsExactly(2, -4);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Check.That(result).IsEquivalentTo(1, 1, 3, 5);
+            Check.That(result).ContainsExactly(1, 1, 3, 5);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Check.That(result).IsEquivalentTo(-4);
+            Check.That(result).ContainsExactly(-4);
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Numbers;
 
-            Check.That(result).IsEquivalentTo(-3, -1, -4, -1, 5, -5);
+            Check.That(result).ContainsExactly(-3, -1, -4, -1, 5, -5);
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Check.That(result).IsEquivalentTo("lion");
+            Check.That(result).ContainsExactly("lion");
         }
 
         [Fact]
@@ -82,7 +82,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Check.That(result).IsEquivalentTo("swordfish");
+            Check.That(result).ContainsExactly("swordfish");
         }
 
         [Fact]
@@ -90,7 +90,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Check.That(result).IsEquivalentTo("swordfish", "shark");
+            Check.That(result).ContainsExactly("swordfish", "shark");
         }
 
         [Fact]
@@ -98,7 +98,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Check.That(result).IsEquivalentTo("tiger", "lion");
+            Check.That(result).ContainsExactly("tiger", "lion");
         }
 
         [Fact]
@@ -106,7 +106,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Check.That(result).IsEquivalentTo("tiger", "penguin", "elephant");
+            Check.That(result).ContainsExactly("tiger", "penguin", "elephant");
         }
 
         [Fact]
@@ -114,7 +114,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Check.That(result).IsEquivalentTo("elephant");
+            Check.That(result).ContainsExactly("elephant");
         }
 
         [Fact]
@@ -122,7 +122,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.Animals;
 
-            Check.That(result).IsEquivalentTo("lion");
+            Check.That(result).ContainsExactly("lion");
         }
 
         [Fact]
@@ -130,7 +130,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(TestData.People[3]);
+            Check.That(result).ContainsExactly(TestData.People[3]);
         }
 
         [Fact]
@@ -138,7 +138,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(TestData.People[1], TestData.People[3]);
+            Check.That(result).ContainsExactly(TestData.People[1], TestData.People[3]);
         }
 
         [Fact]
@@ -146,7 +146,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(TestData.People[0], TestData.People[3]);
+            Check.That(result).ContainsExactly(TestData.People[0], TestData.People[3]);
         }
 
         [Fact]
@@ -154,7 +154,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(TestData.People[2]);
+            Check.That(result).ContainsExactly(TestData.People[2]);
         }
 
         [Fact]
@@ -162,7 +162,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(TestData.People[1], TestData.People[3]);
+            Check.That(result).ContainsExactly(TestData.People[1], TestData.People[3]);
         }
 
         [Fact]
@@ -170,7 +170,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(TestData.People[2]);
+            Check.That(result).ContainsExactly(TestData.People[2]);
         }
     }
 }

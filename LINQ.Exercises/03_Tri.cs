@@ -22,14 +22,14 @@ namespace LINQ.Exercises
         {
             // Le premier test passe
             var result = TestData.OrderByWords.Order();
-            Check.That(result).IsEquivalentTo("apple", "blueberry", "cherry");
+            Check.That(result).ContainsExactly("apple", "blueberry", "cherry");
         }
 
         [Fact]
         public void Tri_alphabetique()
         {
             var result = TestData.OrderByWordsExtended;
-            Check.That(result).IsEquivalentTo("apple", "blueberry", "cherry", "tamarind", "zuchini");
+            Check.That(result).ContainsExactly("apple", "blueberry", "cherry", "tamarind", "zuchini");
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.OrderByWordsExtended;
 
-            Check.That(result).IsEquivalentTo("tamarind", "cherry", "blueberry", "apple", "zuchini");
+            Check.That(result).ContainsExactly("tamarind", "cherry", "blueberry", "apple", "zuchini");
         }
 
         [Fact]
@@ -45,7 +45,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.OrderByWordsExtended;
 
-            Check.That(result).IsEquivalentTo("zuchini", "tamarind", "cherry", "blueberry", "apple");
+            Check.That(result).ContainsExactly("zuchini", "tamarind", "cherry", "blueberry", "apple");
         }
 
         [Fact]
@@ -53,7 +53,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.OrderByWords;
 
-            Check.That(result).IsEquivalentTo("apple", "cherry", "blueberry");
+            Check.That(result).ContainsExactly("apple", "cherry", "blueberry");
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(
+            Check.That(result).ContainsExactly(
                 new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1)),
                 new TestData.Person("Jimmy", "Jilly", new DateTime(1974, 9, 16)),
                 new TestData.Person("Jill", "Lill", new DateTime(2001, 5, 21)),
@@ -76,7 +76,7 @@ namespace LINQ.Exercises
             // Indice, il existe une classe nommée CaseInsensitiveComparer
             var result = words;
 
-            Check.That(result).IsEquivalentTo("AbAcUs", "aPPLE", "BlUeBeRrY", "bRaNcH", "cHeRry", "ClOvEr");
+            Check.That(result).ContainsExactly("AbAcUs", "aPPLE", "BlUeBeRrY", "bRaNcH", "cHeRry", "ClOvEr");
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(
+            Check.That(result).ContainsExactly(
                 new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1)),
                 new TestData.Person("Jimmy", "Jilly", new DateTime(1974, 9, 16)),
                 new TestData.Person("Jill", "Lill", new DateTime(2001, 5, 21)),
@@ -99,7 +99,7 @@ namespace LINQ.Exercises
 
             var result = doubles;
 
-            Check.That(result).IsEquivalentTo(4.1, 2.9, 2.3, 1.9, 1.7);
+            Check.That(result).ContainsExactly(4.1, 2.9, 2.3, 1.9, 1.7);
         }
 
         [Fact]
@@ -107,7 +107,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.People;
 
-            Check.That(result).IsEquivalentTo(
+            Check.That(result).ContainsExactly(
                 new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1)),
                 new TestData.Person("Jimmy", "Jilly", new DateTime(1974, 9, 16)),
                 new TestData.Person("Jack", "Tuck", new DateTime(1990, 3, 12)),

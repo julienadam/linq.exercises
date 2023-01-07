@@ -19,7 +19,7 @@ namespace LINQ.Exercises
             // Le premier test passe.
             var result = TestData.PartitionNumbers.Take(3);
 
-            Check.That(result).IsEquivalentTo(5, 4, 1);
+            Check.That(result).ContainsExactly(5, 4, 1);
         }
 
         [Fact]
@@ -27,7 +27,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.PartitionNumbers;
 
-            Check.That(result).IsEquivalentTo(5, 4);
+            Check.That(result).ContainsExactly(5, 4);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.PartitionNumbers;
 
-            Check.That(result).IsEquivalentTo(9, 8, 6, 7, 2, 0);
+            Check.That(result).ContainsExactly(9, 8, 6, 7, 2, 0);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.PartitionNumbers;
 
-            Check.That(result).IsEquivalentTo(5, 4, 1, 3);
+            Check.That(result).ContainsExactly(5, 4, 1, 3);
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.PartitionNumbers;
 
-            Check.That(result).IsEquivalentTo(5, 4);
+            Check.That(result).ContainsExactly(5, 4);
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.PartitionNumbers;
 
-            Check.That(result).IsEquivalentTo(3, 9, 8, 6, 7, 2, 0);
+            Check.That(result).ContainsExactly(3, 9, 8, 6, 7, 2, 0);
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace LINQ.Exercises
         {
             var result = TestData.PartitionNumbers;
 
-            Check.That(result).IsEquivalentTo(1, 3, 9, 8, 6, 7, 2, 0);
+            Check.That(result).ContainsExactly(1, 3, 9, 8, 6, 7, 2, 0);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace LINQ.Exercises
             int[] nombres = { 2, 2, 3, 5, 5, 2, 3, 4, 6, 4, 3, 8, 7, 5, 9, 4, 6, 3, 6, 34, 2, 2, 5, 7, 5, 4, 2, 6, 67, 5 };
             var result = nombres;
             
-            Check.That(result).IsEquivalentTo(2, 3, 5, 4, 6, 8, 7, 9, 34, 67);
+            Check.That(result).ContainsExactly(2, 3, 5, 4, 6, 8, 7, 9, 34, 67);
         }
 
         [Fact]
@@ -31,7 +31,7 @@ namespace LINQ.Exercises
 
            var result = numbersA;
 
-            Check.That(result).IsEquivalentTo(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+            Check.That(result).ContainsExactly(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace LINQ.Exercises
 
             var result = numbersA;
 
-            Check.That(result).IsEquivalentTo(5, 8);
+            Check.That(result).ContainsExactly(5, 8);
         }
                
         [Fact]
@@ -53,7 +53,7 @@ namespace LINQ.Exercises
 
             var result = numbersA;
 
-            Check.That(result.Order()).IsEquivalentTo(0, 2, 4, 6, 9);
+            Check.That(result.Order()).ContainsExactly(0, 2, 4, 6, 9);
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace LINQ.Exercises
 
            var result = lettersA;
 
-            Check.That(result.Order()).IsEquivalentTo("b", "d");
+            Check.That(result.Order()).ContainsExactly("b", "d");
         }
     }
 }

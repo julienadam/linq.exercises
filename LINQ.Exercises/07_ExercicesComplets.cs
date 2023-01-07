@@ -19,7 +19,7 @@ namespace LINQ.Exercises
         {
             var commonCharacters = new List<char>();
 
-            Check.That(commonCharacters).IsEquivalentTo('a', 'i', 'J');
+            Check.That(commonCharacters).ContainsExactly('a', 'i', 'J');
         }
 
         [Fact]
@@ -27,7 +27,7 @@ namespace LINQ.Exercises
         {
             var commonCharacters = new List<char>();
 
-            Check.That(commonCharacters).IsEquivalentTo('a', 'i', 'J');
+            Check.That(commonCharacters).ContainsExactly('a', 'i', 'J');
         }
 
         [Fact]
@@ -36,10 +36,10 @@ namespace LINQ.Exercises
             var input = TestData.Customers;
             var resultats = Enumerable.Empty<IGrouping<string, TestData.Customer>>();
 
-            Check.That(resultats.Single(g => g.Key == "BNP")).IsEquivalentTo(TestData.Customers[5], TestData.Customers[1]);
-            Check.That(resultats.Single(g => g.Key == "SG")).IsEquivalentTo(TestData.Customers[7]);
-            Check.That(resultats.Single(g => g.Key == "CA")).IsEquivalentTo(TestData.Customers[3]);
-            Check.That(resultats.Single(g => g.Key == "LCL")).IsEquivalentTo(TestData.Customers[8]);
+            Check.That(resultats.Single(g => g.Key == "BNP")).ContainsExactly(TestData.Customers[1], TestData.Customers[5]);
+            Check.That(resultats.Single(g => g.Key == "SG")).ContainsExactly(TestData.Customers[7]);
+            Check.That(resultats.Single(g => g.Key == "CA")).ContainsExactly(TestData.Customers[3]);
+            Check.That(resultats.Single(g => g.Key == "LCL")).ContainsExactly(TestData.Customers[8]);
         }
 
         [Fact]
@@ -56,9 +56,8 @@ namespace LINQ.Exercises
             // [1, 2, 3] et [4, 5, 6] donne 1*4 + 2*5 + 3*6 = 32
             var resultat = 0;
 
-            Check.That(resultat).IsEqualTo('n');
+            Check.That(resultat).IsEqualTo(-2);
         }
-
 
         [Fact]
         public void Melangez_le_tableau_d_animaux_de_maniere_aleatoire()
