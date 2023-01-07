@@ -40,6 +40,13 @@ namespace LINQ.Exercises
             }
         }
 
+        public record Customer
+        {
+            public string Name { get; init; } = "";
+            public double Balance { get; init; }
+            public string Bank { get; init; } = "";
+        }
+
         public class Person
         {
             public string FirstName { get; }
@@ -93,5 +100,21 @@ namespace LINQ.Exercises
         {
             get { return new[] { "cherry", "apple", "blueberry", "tamarind", "zuchini" }; }
         }
+
+        private static readonly List<Customer> customers = new()
+        {
+            new Customer { Name = "Bob Lesman",   Balance = 80_345.66,     Bank = "SG" },
+            new Customer { Name = "Joe Landy",    Balance = 9_284_756.21,  Bank = "BNP" },
+            new Customer { Name = "Meg Ford",     Balance = 487_233.01,    Bank = "CA" },
+            new Customer { Name = "Peg Vale",     Balance = 7_001_449.92,  Bank = "CA" },
+            new Customer { Name = "Mike Johnson", Balance = 790_872.12,    Bank = "BNP" },
+            new Customer { Name = "Les Paul",     Balance = 8_374_892.54,  Bank = "BNP" },
+            new Customer { Name = "Sid Crosby",   Balance = 957_436.39,    Bank = "SG" },
+            new Customer { Name = "Sarah Ng",     Balance = 56_562_389.85, Bank = "SG" },
+            new Customer { Name = "Tina Fey",     Balance = 1_000_000.00,  Bank = "LCL" },
+            new Customer { Name = "Sid Brown",    Balance = 49_582.68,     Bank = "LCL" },
+        };
+
+        public static IList<Customer> Customers => customers;
     }
 }
