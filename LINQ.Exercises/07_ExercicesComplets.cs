@@ -15,27 +15,41 @@ namespace LINQ.Exercises
     public class ExercicesComplets
     {
         [Fact]
-        public void Trouvez_les_lettres_communes_aux_prenoms_des_personnes_dans_l_ordre_alphabetique()
+        public void Trouvez_les_lettres_communes_a_tous_les_prenoms_des_personnes()
         {
-            var commonCharacters = new List<char>();
+            var commonCharacters =
+                TestData.People
+                    .Select(p => (IEnumerable<char>)p.FirstName)
+                    .Aggregate((state, p) => p.Intersect(state));
 
-            Check.That(commonCharacters).ContainsExactly('a', 'i', 'J');
+            Check.That(commonCharacters).ContainsExactly('J');
         }
 
         [Fact]
-        public void Trouvez_les_lettres_communes_aux_prenoms_des_personnes_dans_l_ordre_alphabetique_sans_operations_ensemblistes()
+        public void Trouvez_les_lettres_communes_a_au_moins_deux_prenoms()
         {
-            var commonCharacters = new List<char>();
-
-            Check.That(commonCharacters).ContainsExactly('a', 'i', 'J');
+            var commonCharacters =
+                TestData.People
+                    .SelectMany(p => p.FirstName.Distinct())
+                    .GroupBy(c => c)
+                    .Where(g => g.Count() >= 2)
+                    .Select(g => g.Key);
+            
+            Check.That(commonCharacters).Contains('a');
+            Check.That(commonCharacters).Contains('i');
+            Check.That(commonCharacters).Contains('J');
+            Check.That(commonCharacters).HasSize(3);
         }
 
         [Fact]
         public void Les_millionaires_de_chaque_banque_tries_par_balance_descendante()
         {
-            var input = TestData.Customers;
-            var resultats = Enumerable.Empty<IGrouping<string, TestData.Customer>>();
-
+            var resultats = 
+                TestData.Customers
+                    .Where(c => c.Balance >= 1_000_000)
+                    .OrderByDescending(c => c.Balance)
+                    .GroupBy(c => c.Bank);
+            
             Check.That(resultats).HasSize(4);
             Check.That(resultats.Single(g => g.Key == "BNP")).ContainsExactly(TestData.Customers[1], TestData.Customers[5]);
             Check.That(resultats.Single(g => g.Key == "SG")).ContainsExactly(TestData.Customers[7]);
