@@ -24,7 +24,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Premier_nombre_plus_petit_que_zero()
         {
-            int result = TestData.Numbers.First();
+            int result = TestData.Numbers.First(x => x < 0);
 
             Check.That(result).IsEqualTo(-3);
         }
@@ -32,7 +32,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Dernier_nombre_plus_grand_que_0()
         {
-            int result = TestData.Numbers.First();
+            int result = TestData.Numbers.Last(x => x > 0);
 
             Check.That(result).IsEqualTo(5);
         }
@@ -40,7 +40,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Premier_nombre_pair()
         {
-            int result = TestData.Numbers.First();
+            int result = TestData.Numbers.First(x => x%2 == 0);
 
             Check.That(result).IsEqualTo(2);
         }
@@ -48,7 +48,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Dernier_nombre_pair()
         {
-            int result = TestData.Numbers.First();
+            int result = TestData.Numbers.Last(x => x % 2 == 0);
 
             Check.That(result).IsEqualTo(-4);
         }
@@ -56,7 +56,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Premier_nombre_plus_grand_que_10_si_pas_de_resultat_retourner_0()
         {
-            int result = TestData.Numbers.First();
+            int result = TestData.Numbers.FirstOrDefault(x => x > 10);
 
             Check.That(result).IsEqualTo(0);
         }
@@ -64,7 +64,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Dernier_nombre_plus_petit_que_moins_1234_si_pas_de_resultat_retourner_0()
         {
-            int result = TestData.Numbers.First();
+            int result = TestData.Numbers.FirstOrDefault(x => x < -1234);
 
             Check.That(result).IsEqualTo(0);
         }
@@ -72,7 +72,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Dernier_elephant()
         {
-            string result = TestData.Animals.First();
+            string result = TestData.Animals.Last(c => c == "elephant");
 
             Check.That(result).IsEqualTo("elephant");
         }
@@ -80,7 +80,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Premiere_chaine_de_4_caracteres()
         {
-            string result = TestData.Animals.First();
+            string result = TestData.Animals.First(a => a.Length == 4);
 
             Check.That(result).IsEqualTo("lion");
         }
@@ -88,7 +88,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Derniere_chaine_contenant_un_g()
         {
-            string result = TestData.Animals.First();
+            string result = TestData.Animals.Last(a => a.Contains('g'));
 
             Check.That(result).IsEqualTo("penguin");
         }
@@ -96,7 +96,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Premiere_chaine_dont_la_premiere_lettre_est_un_s()
         {
-            string result = TestData.Animals.First();
+            string result = TestData.Animals.First(a => a.First() == 's');
 
             Check.That(result).IsEqualTo("swordfish");
         }
@@ -104,7 +104,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Dernier_mot_de_3_lettres_si_pas_de_resultat_retourner_null()
         {
-            string result = TestData.Animals.First();
+            string? result = TestData.Animals.LastOrDefault(a => a.Length == 3);
 
             Check.That(result).IsNull();
         }
@@ -112,7 +112,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Premiere_personne_nee_apres_2000()
         {
-            TestData.Person result = TestData.People.First();
+            TestData.Person result = TestData.People.First(p => p.Born.Year > 2000);
 
             Check.That(result).IsEqualTo(TestData.People[2]);
         }
@@ -120,7 +120,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Derniere_personne_dont_le_nom_de_famille_finit_par_un_l()
         {
-            TestData.Person result = TestData.People.First();
+            TestData.Person result = TestData.People.Last(p => p.LastName.EndsWith('l'));
 
             Check.That(result).IsEqualTo(TestData.People[2]);
         }
@@ -128,7 +128,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Premiere_personne_nee_le_141_jour_de_l_annee()
         {
-            TestData.Person result = TestData.People.First();
+            TestData.Person result = TestData.People.First(p => p.Born.DayOfYear == 141);
 
             Check.That(result).IsEqualTo(TestData.People[2]);
         }
@@ -136,7 +136,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Derniere_personne_dont_le_prenom_ne_commence_pas_par_J_ou_null_si_pas_de_resultat()
         {
-            TestData.Person result = TestData.People.First();
+            TestData.Person result = TestData.People.LastOrDefault(p => !p.FirstName.StartsWith('J'));
 
             Check.That(result).IsNull();
         }
