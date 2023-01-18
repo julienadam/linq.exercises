@@ -30,7 +30,7 @@ namespace LINQ.Exercises
         }
 
         [Fact]
-        public void N_fois_2_superieur_a_50()
+        public void N_fois_2_superieur_a_5()
         {
             var result = TestData.Numbers;
 
