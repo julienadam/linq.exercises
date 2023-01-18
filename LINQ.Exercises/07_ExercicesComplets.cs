@@ -15,19 +15,22 @@ namespace LINQ.Exercises
     public class ExercicesComplets
     {
         [Fact]
-        public void Trouvez_les_lettres_communes_aux_prenoms_des_personnes_dans_l_ordre_alphabetique()
+        public void Trouvez_les_lettres_communes_a_tous_les_prenoms_des_personnes()
         {
             var commonCharacters = new List<char>();
 
-            Check.That(commonCharacters).ContainsExactly('a', 'i', 'J');
+            Check.That(commonCharacters).ContainsExactly( 'J');
         }
 
         [Fact]
-        public void Trouvez_les_lettres_communes_aux_prenoms_des_personnes_dans_l_ordre_alphabetique_sans_operations_ensemblistes()
+        public void Trouvez_les_lettres_communes_a_au_moins_deux_prenoms()
         {
             var commonCharacters = new List<char>();
 
-            Check.That(commonCharacters).ContainsExactly('a', 'i', 'J');
+            Check.That(commonCharacters).Contains('a');
+            Check.That(commonCharacters).Contains('i');
+            Check.That(commonCharacters).Contains('J');
+            Check.That(commonCharacters).HasSize(3);
         }
 
         [Fact]
@@ -48,7 +51,7 @@ namespace LINQ.Exercises
         {
             var resultat = "49fjs492jfJs94KfoedK0iejksKdsj3".First();
 
-            Check.That(resultat).IsEqualTo('n');
+            Check.That(resultat).IsEqualTo('j');
         }
 
         [Fact]
