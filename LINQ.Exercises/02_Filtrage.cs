@@ -134,7 +134,7 @@ namespace LINQ.Exercises
         }
 
         [Fact]
-        public void Personnes_nees_apres_1990()
+        public void Personnes_nees_avant_1990()
         {
             var result = TestData.People;
 
