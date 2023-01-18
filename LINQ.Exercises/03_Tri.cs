@@ -28,14 +28,14 @@ namespace LINQ.Exercises
         [Fact]
         public void Tri_alphabetique()
         {
-            var result = TestData.OrderByWordsExtended;
+            var result = TestData.OrderByWordsExtended.Order();
             Check.That(result).ContainsExactly("apple", "blueberry", "cherry", "tamarind", "zuchini");
         }
 
         [Fact]
         public void Tri_alphabetique_selon_la_deuxieme_lettre()
         {
-            var result = TestData.OrderByWordsExtended;
+            var result = TestData.OrderByWordsExtended.OrderBy(x => x[1]);
 
             Check.That(result).ContainsExactly("tamarind", "cherry", "blueberry", "apple", "zuchini");
         }
@@ -43,7 +43,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tri_alphabetique_descendant()
         {
-            var result = TestData.OrderByWordsExtended;
+            var result = TestData.OrderByWordsExtended.OrderDescending();
 
             Check.That(result).ContainsExactly("zuchini", "tamarind", "cherry", "blueberry", "apple");
         }
@@ -51,7 +51,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tri_par_longueur_de_chaine()
         {
-            var result = TestData.OrderByWords;
+            var result = TestData.OrderByWords.OrderBy(f => f.Length);
 
             Check.That(result).ContainsExactly("apple", "cherry", "blueberry");
         }
@@ -59,7 +59,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tri_par_nom_de_famille()
         {
-            var result = TestData.People;
+            var result = TestData.People.OrderBy(p => p.LastName);
 
             Check.That(result).ContainsExactly(
                 new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1)),
@@ -73,8 +73,8 @@ namespace LINQ.Exercises
         public void Tri_alphabetique_sans_prendre_encompte_la_casse()
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-            // Indice, il existe une classe nommée CaseInsensitiveComparer
-            var result = words;
+            // Indice, utiliser StringComparer.InvariantCultureIgnoreCase
+            var result = words.Order(StringComparer.InvariantCultureIgnoreCase);
 
             Check.That(result).ContainsExactly("AbAcUs", "aPPLE", "BlUeBeRrY", "bRaNcH", "cHeRry", "ClOvEr");
         }
@@ -82,7 +82,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Trier_personnes_par_initiales()
         {
-            var result = TestData.People;
+            var result = TestData.People.OrderBy(p => p.FirstName.First()).ThenBy(p => p.LastName.First());
 
             Check.That(result).ContainsExactly(
                 new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1)),
@@ -97,7 +97,7 @@ namespace LINQ.Exercises
         {
             double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
 
-            var result = doubles;
+            var result = doubles.OrderDescending();
 
             Check.That(result).ContainsExactly(4.1, 2.9, 2.3, 1.9, 1.7);
         }
@@ -105,7 +105,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tri_du_plus_age_au_plus_jeune()
         {
-            var result = TestData.People;
+            var result = TestData.People.OrderBy(p => p.Born);
 
             Check.That(result).ContainsExactly(
                 new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1)),
@@ -118,7 +118,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tri_du_plus_jeune_au_plus_age()
         {
-            var result = TestData.People;
+            var result = TestData.People.OrderByDescending(p => p.Born);
 
             Check.That(result).ContainsExactly(
                 new TestData.Person("Jill", "Lill", new DateTime(2001, 5, 21)),
@@ -132,7 +132,7 @@ namespace LINQ.Exercises
         public void Tri_par_longeur_de_chaine_puis_par_ordre_alphabetique()
         {
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            var result = digits;
+            var result = digits.OrderBy(d => d.Length).ThenBy(d => d);
 
             Check.That(result).ContainsExactly("one", "six", "two", "five", "four", "nine", "zero", "eight", "seven", "three");
         }
@@ -142,7 +142,7 @@ namespace LINQ.Exercises
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            var result = words;
+            var result = words.OrderBy(f => f.Length).ThenBy(f => f, StringComparer.InvariantCultureIgnoreCase);
 
             Check.That(result).ContainsExactly("aPPLE", "AbAcUs", "bRaNcH", "cHeRry", "ClOvEr", "BlUeBeRrY");
         }
@@ -152,7 +152,7 @@ namespace LINQ.Exercises
         {
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            var result = digits;
+            var result = digits.Where(d => d.Contains('i')).Reverse();
 
             Check.That(result).ContainsExactly("nine", "eight", "six", "five");
         }
