@@ -60,16 +60,24 @@ namespace LINQ.Exercises
         [Fact]
         public void Trouver_le_caractere_le_plus_frequent()
         {
-            var resultat = "49fjs492jfJs94KfoedK0iejksKdsj3".First();
+            var resultat = 
+                "49fjs492jfJs94KfoedK0iejksKdsj3"
+                    .GroupBy(c => c)
+                    .MaxBy(g => g.Count())
+                    .Key;
 
-            Check.That(resultat).IsEqualTo('n');
+            Check.That(resultat).IsEqualTo('j');
         }
 
         [Fact]
         public void Calculer_le_produit_des_deux_tableaux_numbers_et_partition_numbers()
         {
             // [1, 2, 3] et [4, 5, 6] donne 1*4 + 2*5 + 3*6 = 32
-            var resultat = 0;
+            var resultat =
+                TestData.Numbers
+                    .Zip(TestData.PartitionNumbers)
+                    .Select(tup => tup.First * tup.Second)
+                    .Sum();
 
             Check.That(resultat).IsEqualTo(-2);
         }
@@ -78,7 +86,7 @@ namespace LINQ.Exercises
         public void Melangez_le_tableau_d_animaux_de_maniere_aleatoire()
         {
             var rnd = new Random(123);
-            var resultat = TestData.Animals;
+            var resultat = TestData.Animals.OrderBy(_ => rnd.Next());
 
             Check.That(resultat).ContainsExactly("shark", "elephant", "swordfish", "penguin", "lion", "tiger");
         }
