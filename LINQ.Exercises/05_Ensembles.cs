@@ -18,7 +18,7 @@ namespace LINQ.Exercises
         public void Entiers_distincts()
         {
             int[] nombres = { 2, 2, 3, 5, 5, 2, 3, 4, 6, 4, 3, 8, 7, 5, 9, 4, 6, 3, 6, 34, 2, 2, 5, 7, 5, 4, 2, 6, 67, 5 };
-            var result = nombres;
+            var result = nombres.Distinct();
             
             Check.That(result).ContainsExactly(2, 3, 5, 4, 6, 8, 7, 9, 34, 67);
         }
@@ -29,7 +29,7 @@ namespace LINQ.Exercises
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-           var result = numbersA;
+           var result = numbersA.Union(numbersB).Order();
 
             Check.That(result).ContainsExactly(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         }
@@ -40,7 +40,7 @@ namespace LINQ.Exercises
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            var result = numbersA;
+            var result = numbersA.Intersect(numbersB);
 
             Check.That(result).ContainsExactly(5, 8);
         }
@@ -51,7 +51,7 @@ namespace LINQ.Exercises
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            var result = numbersA;
+            var result = numbersA.Except(numbersB);
 
             Check.That(result.Order()).ContainsExactly(0, 2, 4, 6, 9);
         }
@@ -62,7 +62,7 @@ namespace LINQ.Exercises
             string[] lettersA = { "a", "b", "c", "d", "e" };
             string[] lettersB = { "a", "c", "e" };
 
-           var result = lettersA;
+           var result = lettersA.Except(lettersB);
 
             Check.That(result.Order()).ContainsExactly("b", "d");
         }
