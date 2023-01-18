@@ -73,9 +73,9 @@ namespace LINQ.Exercises
         public void Tri_alphabetique_sans_prendre_encompte_la_casse()
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-            // Indice, il existe une classe nommée CaseInsensitiveComparer
+            // Indice, utiliser StringComparer.InvariantCultureIgnoreCase
             var result = words;
-
+            
             Check.That(result).ContainsExactly("AbAcUs", "aPPLE", "BlUeBeRrY", "bRaNcH", "cHeRry", "ClOvEr");
         }
 

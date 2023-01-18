@@ -166,7 +166,7 @@ namespace LINQ.Exercises
         }
 
         [Fact]
-        public void Personnes_dont_le_nom_de_famille_contient_ll_et_dont_la_somme_jour_moi_annee_est_superieure_a_2000()
+        public void Personnes_dont_le_nom_de_famille_contient_ll_et_dont_la_somme_jour_mois_annee_est_superieure_a_2000()
         {
             var result = TestData.People;
 
