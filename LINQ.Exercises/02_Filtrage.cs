@@ -46,15 +46,15 @@ namespace LINQ.Exercises
         }
 
         [Fact]
-        public void L_index_de_n_est_impair()
+        public void L_index_de_n_est_pair()
         {
             var result = TestData.Numbers;
 
-            Check.That(result).ContainsExactly(1, 1, 3, 5);
+            Check.That(result).ContainsExactly(1, 1, 2, 3, 5);
         }
 
         [Fact]
-        public void N_est_impair_et_plus_petit_que_zero()
+        public void N_est_pair_et_plus_petit_que_zero()
         {
             var result = TestData.Numbers;
 
