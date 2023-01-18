@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using NFluent;
 using Xunit;
 
@@ -25,7 +26,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Les_deux_premiers_nombres()
         {
-            var result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers.Take(2);
 
             Check.That(result).ContainsExactly(5, 4);
         }
@@ -33,7 +34,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tous_les_nombres_sauf_les_4_premiers()
         {
-            var result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers.Skip(4);
 
             Check.That(result).ContainsExactly(9, 8, 6, 7, 2, 0);
         }
@@ -41,7 +42,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tous_les_nombres_jusqu_au_premier_nombre_qui_n_est_pas_plus_petit_que_6()
         {
-            var result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers.TakeWhile(n => n < 6);
 
             Check.That(result).ContainsExactly(5, 4, 1, 3);
         }
@@ -49,7 +50,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tous_les_nombres_jusqu_au_premier_qui_est_inferieur_a_sa_position_dans_la_sequence()
         {
-            var result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers.TakeWhile((item, index) => item >= index);
 
             Check.That(result).ContainsExactly(5, 4);
         }
@@ -57,7 +58,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tous_les_elements_a_partir_du_premier_element_divisible_par_3()
         {
-            var result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers.SkipWhile(n => n % 3 != 0);
 
             Check.That(result).ContainsExactly(3, 9, 8, 6, 7, 2, 0);
         }
@@ -65,7 +66,7 @@ namespace LINQ.Exercises
         [Fact]
         public void Tous_les_elements_a_partir_du_premier_element_inferieur_a_sa_position_dans_la_sequence()
         {
-            var result = TestData.PartitionNumbers;
+            var result = TestData.PartitionNumbers.SkipWhile((item, index) => item >= index);
 
             Check.That(result).ContainsExactly(1, 3, 9, 8, 6, 7, 2, 0);
         }
